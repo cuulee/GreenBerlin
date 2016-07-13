@@ -1,0 +1,153 @@
+<html>
+<head>
+	<title>Google Custom Styles // Leaflet</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<script src='https://api.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.css' rel='stylesheet' />
+	<style>
+		body,html{
+			padding:0;
+			margin:0;
+			width:100%;
+			height:100%;
+			background-color:#000;
+		}
+
+		#menu {
+	        background: #fff;
+	        position: absolute;
+	        z-index: 1;
+	        top: 10px;
+	        right: 10px;
+	        border-radius: 3px;
+	        width: 120px;
+	        border: 1px solid rgba(0,0,0,0.4);
+	        font-family: 'Open Sans', sans-serif;
+	    }
+
+	    #menu a {
+	        font-size: 13px;
+	        color: #404040;
+	        display: block;
+	        margin: 0;
+	        padding: 0;
+	        padding: 10px;
+	        text-decoration: none;
+	        border-bottom: 1px solid rgba(0,0,0,0.25);
+	        text-align: center;
+	    }
+
+	    #menu a:last-child {
+	        border: none;
+	    }
+
+	    #menu a:hover {
+	        background-color: #f8f8f8;
+	        color: #404040;
+	    }
+
+	    #menu a.active {
+	        background-color: #3887be;
+	        color: #ffffff;
+	    }
+
+	    #menu a.active:hover {
+	        background: #3074a4;
+	    }
+	</style>
+</head>
+<body>
+	<nav id="menu"></nav>
+	<div style="width:100%; height:100%" id="map"></div>
+<script type='text/javascript'>
+mapboxgl.accessToken = 'pk.eyJ1IjoianVsaTg0IiwiYSI6Il9fLThha2MifQ.-fdD0A_5xRzjLwPF49AyuA';
+var map = new mapboxgl.Map({
+    // container id
+    container: 'map',
+    //stylesheet location
+    style: 'style.json',
+    // starting position
+    center: [13.4244,52.5047],
+    zoom: 10,
+    minZoom:10,
+    maxZoom:13,
+    maxBounds:[12.0449,51.3169,14.7961,53.6968]
+});
+
+map.addControl(new mapboxgl.Navigation({position: 'top-left'}));
+map.setMaxZoom(13);
+
+function hideAll(){
+	map.setLayoutProperty('bezirke', 'visibility', 'none');
+	map.setLayoutProperty('bezirke_label', 'visibility', 'none');
+	map.setLayoutProperty('bezirke_outline', 'visibility', 'none');
+	map.setLayoutProperty('water_1', 'visibility', 'none');
+	map.setLayoutProperty('water_2', 'visibility', 'none');
+	map.setLayoutProperty('water_3', 'visibility', 'none');
+	map.setLayoutProperty('greens_1', 'visibility', 'none');
+	map.setLayoutProperty('greens_2', 'visibility', 'none');
+	map.setLayoutProperty('greens_3', 'visibility', 'none');
+
+	for(var i = 0; i<links.length; i++){
+		links[i].className = '';
+	}
+}
+
+var links = [];
+
+addLayer('Hide all', 'none');
+addLayer('Districts', 'bezirke');
+addLayer('Water', 'water');
+addLayer('Forests & Parks', 'greens');
+
+function addLayer(name, id) {
+    var link = document.createElement('a');
+    links.push(link);
+    link.href = '#';
+    if(id==="none"){
+    	link.className = 'active';
+    }else{
+    	link.className = '';
+    }
+    link.textContent = name;
+
+    link.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        hideAll();
+
+        this.className = 'active';
+
+        switch(id){
+        	case 'bezirke':
+        		map.setLayoutProperty(id, 'visibility', 'visible');
+        		map.setLayoutProperty(id+"_label", 'visibility', 'visible');
+        		map.setLayoutProperty(id+"_outline", 'visibility', 'visible');
+        	break;
+        	case 'greens':
+        		map.setLayoutProperty(id+"_1", 'visibility', 'visible');
+        		map.setLayoutProperty(id+"_2", 'visibility', 'visible');
+        		map.setLayoutProperty(id+"_3", 'visibility', 'visible');
+        	break;
+        	case 'water':
+        		map.setLayoutProperty(id+"_1", 'visibility', 'visible');
+        		map.setLayoutProperty(id+"_2", 'visibility', 'visible');
+        		map.setLayoutProperty(id+"_3", 'visibility', 'visible');
+        	break;
+        	default:
+        		//All off
+        	break;
+        }
+    };
+
+    var layers = document.getElementById('menu');
+    layers.appendChild(link);
+}
+
+</script>
+ 
+</body>
+</html>

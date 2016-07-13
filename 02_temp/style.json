@@ -1,0 +1,332 @@
+{
+  "version": 8,
+  "center": [
+    13.320273556711044,
+    52.4976497577654
+  ],
+  "metadata": {
+    "mapbox:autocomposite": true
+  },
+  "zoom": 10,
+  "bearing": 0,
+  "pitch": 0,
+  "sprite": "mapbox://sprites/mapbox/satellite-hybrid-v8",
+  "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
+  "sources": {
+    "osmlabels": {
+      "type": "vector",
+      "tiles": [
+        "http://tiles.sebastianmeier.eu/v2/tiles/osm_labels/{z}/{x}/{y}.pbf"
+      ]
+    },
+    "geotiff": {
+      "tiles": [
+        "http://tiles.sebastianmeier.eu/v2/tiles/green/{z}/{x}/{y}.png"
+      ],
+      "type": "raster",
+      "tileSize": 256
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "rgba(0,0,0,1)"
+      },
+      "interactive": true
+    },
+    {
+      "id": "image",
+      "type": "raster",
+      "source": "geotiff",
+      "source-layer": "image",
+      "minzoom": 9,
+      "maxzoom": 15
+    },
+    {
+      "minzoom": 12,
+      "layout": {
+        "text-field": "{name}",
+        "symbol-avoid-edges": false,
+        "text-padding": 20,
+        "text-size": 12,
+        "visibility": "none"
+      },
+      "maxzoom": 14,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Polygon"
+        ],
+        [
+          ">",
+          "area",
+          1000
+        ],
+        [
+          "<",
+          "area",
+          100000
+        ]
+      ],
+      "type": "symbol",
+      "source": "osmlabels",
+      "id": "water_3",
+      "paint": {
+        "text-color": "rgba(255,255,255,1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0,0,0,0.9)",
+        "text-halo-blur": 1
+      },
+      "source-layer": "water",
+      "interactive": true
+    },
+    {
+      "minzoom": 11,
+      "layout": {
+        "text-field": "{name}",
+        "symbol-avoid-edges": false,
+        "text-padding": 20,
+        "text-size": 14,
+        "visibility": "none"
+      },
+      "maxzoom": 14,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Polygon"
+        ],
+        [
+          ">",
+          "area",
+          100000
+        ],
+        [
+          "<",
+          "area",
+          10000000
+        ]
+      ],
+      "type": "symbol",
+      "source": "osmlabels",
+      "id": "water_2",
+      "paint": {
+        "text-color": "rgba(255,255,255,1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0,0,0,0.9)",
+        "text-halo-blur": 1
+      },
+      "source-layer": "water",
+      "interactive": true
+    },
+    {
+      "minzoom": 10,
+      "layout": {
+        "text-field": "{name}",
+        "symbol-avoid-edges": false,
+        "text-padding": 50,
+        "text-size": 16,
+        "visibility": "none"
+      },
+      "maxzoom": 14,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Polygon"
+        ],
+        [
+          ">",
+          "area",
+          10000000
+        ]
+      ],
+      "type": "symbol",
+      "source": "osmlabels",
+      "id": "water_1",
+      "paint": {
+        "text-color": "rgba(255,255,255,1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0,0,0,0.9)",
+        "text-halo-blur": 1
+      },
+      "source-layer": "water",
+      "interactive": true
+    },
+    {
+      "minzoom": 12,
+      "layout": {
+        "text-field": "{name}",
+        "symbol-avoid-edges": false,
+        "text-padding": 20,
+        "text-size": 12,
+        "visibility": "none"
+      },
+      "maxzoom": 14,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Polygon"
+        ],
+        [
+          ">",
+          "area",
+          1000
+        ],
+        [
+          "<",
+          "area",
+          100000
+        ]
+      ],
+      "type": "symbol",
+      "source": "osmlabels",
+      "id": "greens_3",
+      "paint": {
+        "text-color": "rgba(255,255,255,1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0,0,0,0.9)",
+        "text-halo-blur": 1
+      },
+      "source-layer": "greens",
+      "interactive": true
+    },
+    {
+      "minzoom": 11,
+      "layout": {
+        "text-field": "{name}",
+        "symbol-avoid-edges": false,
+        "text-padding": 20,
+        "text-size": 14,
+        "visibility": "none"
+      },
+      "maxzoom": 14,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Polygon"
+        ],
+        [
+          ">",
+          "area",
+          100000
+        ],
+        [
+          "<",
+          "area",
+          10000000
+        ]
+      ],
+      "type": "symbol",
+      "source": "osmlabels",
+      "id": "greens_2",
+      "paint": {
+        "text-color": "rgba(255,255,255,1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0,0,0,0.9)",
+        "text-halo-blur": 1
+      },
+      "source-layer": "greens",
+      "interactive": true
+    },
+    {
+      "minzoom": 10,
+      "layout": {
+        "text-field": "{name}",
+        "symbol-avoid-edges": true,
+        "text-padding": 20,
+        "text-size": 16,
+        "visibility": "none"
+      },
+      "maxzoom": 14,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Polygon"
+        ],
+        [
+          ">",
+          "area",
+          10000000
+        ]
+      ],
+      "type": "symbol",
+      "source": "osmlabels",
+      "id": "greens_1",
+      "paint": {
+        "text-color": "rgba(255,255,255,1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0,0,0,0.9)",
+        "text-halo-blur": 1
+      },
+      "source-layer": "greens",
+      "interactive": true
+    },
+    {
+      "layout": {
+        "visibility": "none"
+      },
+      "minzoom": 10,
+      "type": "line",
+      "id": "bezirke",
+      "source": "osmlabels",
+      "source-layer": "bezirke",
+      "interactive": true,
+      "paint": {
+        "line-width": 2,
+        "line-color": "rgba(255,255,255,0.7)"
+      }
+    },
+    {
+      "layout": {
+        "visibility": "none"
+      },
+      "minzoom": 10,
+      "type": "line",
+      "id": "bezirke_outline",
+      "source": "osmlabels",
+      "source-layer": "berlin",
+      "interactive": true,
+      "paint": {
+        "line-width": 2,
+        "line-color": "rgba(255,255,255,0.7)"
+      }
+    },
+    {
+      "minzoom": 10,
+      "layout": {
+        "text-field": "{name}",
+        "text-size": 16,
+        "visibility": "none"
+      },
+      "type": "symbol",
+      "source": "osmlabels",
+      "id": "bezirke_label",
+      "paint": {
+        "text-color": "rgba(255,255,255,1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(0,0,0,0.9)",
+        "text-halo-blur": 1
+      },
+      "source-layer": "bezirke_label",
+      "interactive": true
+    }
+  ],
+  "created": "2016-06-29T12:44:52.484Z",
+  "id": "ciq0vjxj0002ndtnpvwqih2je",
+  "modified": "2016-06-29T12:55:11.945Z",
+  "owner": "juli84",
+  "draft": false
+}

@@ -1,0 +1,354 @@
+/*
+font-family: 'Raleway', sans-serif;
+font-family: 'Lato', sans-serif;
+*/
+
+
+body {
+  background-color: #f2f2f2;
+    font-family: "Lato";
+    font-weight: 300;
+    font-size: 16px;
+    color: #555;
+    padding-top: 50px;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway";
+    font-weight: 300;
+    color: #333;
+}
+
+
+/* Paragraph & Typographic */
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+}
+
+.centered {
+    text-align: center;
+}
+
+/* Links */
+a {
+    color: #2ca875; /*3bc492*/
+    word-wrap: break-word;
+
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in, border-color 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in, border-color 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in, border-color 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in, border-color 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in, border-color 0.1s ease-in;
+}
+
+a:hover,
+a:focus {
+    color: #c0392b;
+    text-decoration: none;
+    outline: 0;
+}
+
+.ekko-lightbox-container a:hover,
+.ekko-lightbox-container a:focus {
+    color:#3bc492;
+    text-shadow: 0 0 5px black;
+}
+
+a:before,
+a:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in, border-color 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in, border-color 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in, border-color 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in, border-color 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in, border-color 0.1s ease-in;
+}
+
+ hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+/* ==========================================================================
+   Wrap Sections
+   ========================================================================== */
+
+.navbar-default{
+    background-color:#28b9b7;
+    border-color:#329796;
+}
+
+.navbar-default a{
+    color:#ffffff;
+    font-weight:400;
+}
+
+.navbar-default a.navbar-brand{
+    background-image:url("../img/nav_logo_lowres.png");
+    background-size:84px 24px;
+    background-position: 40px center;
+    background-repeat: no-repeat;
+    min-width:130px;
+    color:#fff;
+    cursor: pointer;
+    display: inline-block;
+    float:left;
+}
+
+.navbar-default a.navbar-brand:hover{
+	color: #fff;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+    .navbar-default a.navbar-brand{
+        background-image:url("../img/nav_logo_highres.png");
+    }
+}
+
+.navbar-default .divider{
+    float:left;
+	font-weight:bold;
+	color:#fff;
+	font-size:23px;
+	line-height:46px;
+	padding-right:11px;
+	display:inline-block;
+	font-style: italic;
+}
+
+.navbar-default .title{
+    float:left;
+	color:#fff;
+	font-size:23px;
+	padding-top:1px;
+	display:inline-block;
+	padding-top:9px;
+}
+
+.navbar-default a:hover,
+.navbar-default li.active a{
+    background-color:#329796;
+}
+
+#footerwrap {
+	background-color: #2f2f2f;
+	color: white;
+	padding-top: 40px;
+	padding-bottom: 60px;
+	text-align: left;
+}
+
+#footerwrap h3 {
+	font-size: 28px;
+	color: white;
+}
+
+#footerwrap p {
+	color: white;
+	font-size: 18px;
+}
+
+/*header*/
+
+#header{
+	min-height:500px;
+	background-image:url("../img/header.jpg");
+	background-position: center top;
+	background-repeat: no-repeat;
+	padding-bottom:40px;
+}
+
+h1{
+	text-align: center;
+	margin-top:468px;
+	font-weight:700;
+	font-family: 'Raleway', sans-serif;
+}
+
+h1 span{
+	padding:5px 10px;
+	background-color:#f2f2f2;
+}
+
+h2{
+	font-size:20px;
+	font-weight:700;
+	text-align: center;
+	padding-top:0;
+	margin-top:0;
+}
+
+.image-container{
+	text-align: center;
+}
+
+.image-container img{
+	max-width: 100%;
+	height:auto;
+}
+
+.caption{
+	font-size:12px;
+	line-height: 14px;
+	color:#555;
+}
+
+.inline-special{
+	float:right;
+	width:180px;
+	margin:0 0 20px 20px;
+}
+
+.inline-special img{
+	margin-bottom:5px;
+}
+
+.inline-special p{
+	font-size: 12px;
+	line-height: 14px;
+	color:#555;
+}
+
+p.clear{
+	clear:both;
+}
+
+.padding-bottom{
+	padding-bottom: 50px;
+}
+
+.padding-top{
+	padding-top: 50px;
+}
+
+.gallery img{
+	width:100%;
+	max-width:100%;
+	margin-bottom:20px;
+}
+
+/* GITHUB BADGE */
+
+.github-repo{
+	background-color:#ededed;
+	border:2px solid #ccc;
+	border-radius:10px;
+}
+
+.github-repo img{
+	width:15%;
+	height:auto;
+	margin: 5%;
+	float:left;
+}
+
+.github-repo p{
+	margin:5%;
+	width:60%;
+	float:left;
+}
+
+.github-repo span,
+.github-repo a{
+	float:left;
+}
+
+.github-repo hr{
+	visibility: hidden;
+	clear:both;
+	border:none;
+	height:0;
+	padding:0;
+	margin:0;
+}
+
+.github-title{
+	font-weight:700;
+	font-size:20px;
+	line-height:22px;
+}
+
+.github-subtitle{
+	line-height:19px;
+	font-size:16px;
+}
+
+.github-repo a{
+	line-height:19px;
+	font-size:14px;
+	font-weight:bold;
+}
+
+/*MAP INTERFACE*/
+
+#menu-container{
+	padding-bottom: 20px;
+	padding-top:20px;
+	background-color:#000;
+	color:#fff;
+}
+
+#menu-container .container{
+	text-align: center;
+}
+
+#menu a:hover {
+	background-color: #f8f8f8;
+	color: #404040;
+}
+
+#menu a.active {
+	background-color: #3887be;
+	color: #ffffff;
+}
+
+#menu a.active:hover {
+	background: #3074a4;
+}
+
+#map{
+	width:100%;
+}
+
+/* Attribution */
+
+#attribution{
+	background:#333;
+	color:#fff;
+	padding-bottom:50px;
+}
+
+#attribution h3{
+	color: #fff;
+	padding-top:20px;
+	padding-bottom: 3px;
+	font-weight: 700;
+	font-size:20px;
+	margin-bottom:0px;
+}
+
+.collabs img{
+	margin-top:10px;
+	margin-right: 25px;
+}
+
+/* Copyright Wrap */
+
+#c {
+	background: #222222;
+	padding-top: 15px;
+	text-align: right;
+}
+
+#c p {
+	color: white
+}

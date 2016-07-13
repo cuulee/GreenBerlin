@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<style>
+/*.water path{
+    stroke:rgba(255,255,255,1);
+    fill:rgba(15, 147, 189, 1);
+}*/
+
+.water path{
+    stroke:red;
+    fill:transparent;
+}
+
+.park path{
+    stroke:green;
+    fill:transparent;
+}
+
+.berlin path{
+    stroke:black;
+    fill:transparent;
+}
+
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+
+var bb = [13.0883536782043,52.3382388102358,13.761131111581,52.6755085785852];
+
+var width = 1000,
+    height = 1000;
+
+var projection = d3.geo.mercator()
+	.center([13.35, 52.45])
+    .rotate([0, 0])
+    //.parallels([50, 60])
+    .scale(40000)
+    .translate([width / 2, height / 2 + 80]);
+
+var path = d3.geo.path()
+    .projection(projection)
+    .pointRadius(2);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var g_water = svg.append("g").attr("class","water");
+var g_park = svg.append("g").attr("class","park");
+var g_berlin = svg.append("g").attr("class","berlin");
+
+/*d3.json("water.geojson", function(error, water) {
+
+    g_water.selectAll("path")
+            .data(water.features)
+        .enter().append('path')
+            .filter(function(d){
+                return filterFunc(d, 0.003);
+            })
+            .attr("d", path);
+
+});*/
+
+
+d3.json("parks.geojson", function(error, park) {
+
+    g_park.selectAll("path")
+            .data(park.features)
+        .enter().append('path')
+            .filter(function(d){
+                return filterFunc(d, 0.01);
+            })
+            .attr("d", path);
+
+});
+
+
+d3.json("berlin.geojson", function(error, berlin) {
+
+    g_berlin.selectAll("path")
+            .data(berlin.features)
+        .enter().append('path')
+            .attr("d", path);
+
+});
+
+function checkInside(a){
+    var bbp = [Number.MAX_VALUE,Number.MAX_VALUE,-Number.MAX_VALUE,-Number.MAX_VALUE];
+    var onein = false;
+
+    if(isNaN(a[0][0])){
+        for(var j = 0; j<a.length; j++){
+            var b = checkInside(a[j]);
+            if(b[0]){onein = true;}
+
+            if(b[1][0]<bbp[0]){bbp[0]=b[1][0];}
+            if(b[1][0]>bbp[2]){bbp[2]=b[1][0];}
+            if(b[1][1]<bbp[1]){bbp[1]=b[1][1];}
+            if(b[1][1]>bbp[3]){bbp[3]=b[1][1];}
+        }
+    }else{
+        for(var j = 0; j<a.length; j++){
+            var p = a[j];
+
+            if(p[0]<bbp[0]){bbp[0]=p[0];}
+            if(p[0]>bbp[2]){bbp[2]=p[0];}
+            if(p[1]<bbp[1]){bbp[1]=p[1];}
+            if(p[1]>bbp[3]){bbp[3]=p[1];}
+
+            if(
+                p[0]>bb[0] &&
+                p[0]<bb[2] &&
+                p[1]>bb[1] &&
+                p[1]<bb[3]
+            ){
+                onein = true;
+            }
+        }
+    }
+
+    return [onein, bbp];
+}
+
+function filterFunc(d, minSize){
+    if(d.geometry.type === "Polygon" || d.geometry.type === "MultiPolygon"){
+
+        var a = checkInside(d.geometry.coordinates);
+
+        console.log(a);
+
+        var onein = a[0];
+        var bbp = a[1];
+
+        if(onein){
+
+            var s = Math.sqrt( Math.pow((bbp[2] - bbp[0]),2) + Math.pow((bbp[3] - bbp[1]),2) );
+
+            if(s>minSize){
+                return true;
+            }else{
+                return false;
+            }
+
+        }else{
+
+            return false;
+
+        }
+    }else{
+        console.log(d.geometry.type);
+        return false;
+    }
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" background-color="#000000">
+
+<Parameters>
+  <Parameter name="bounds">-180,-85.0511,180,85.0511</Parameter>
+  <Parameter name="center">13.3401,52.5009,12</Parameter>
+  <Parameter name="format">png8:m=h</Parameter>
+  <Parameter name="maxzoom">16</Parameter>
+  <Parameter name="minzoom">0</Parameter>
+  <Parameter name="source"><![CDATA[tmsource:///Users/sebastianmeier/green_labels.tm2source]]></Parameter>
+</Parameters>
+
+
+<Style name="data" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([area] &gt; 10000000)</Filter>
+    <TextSymbolizer fill="#000000" halo-fill="#ffffff" face-name="Open Sans Regular" size="13" wrap-width="60" halo-radius="1" halo-rasterizer="fast" avoid-edges="true" margin="250" repeat-distance="550" placement="point" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt; 10000000)</Filter>
+    <TextSymbolizer fill="#000000" halo-fill="#ffffff" face-name="Open Sans Regular" size="13" wrap-width="60" halo-radius="1" halo-rasterizer="fast" avoid-edges="true" margin="100" repeat-distance="100" placement="point" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 10000000)</Filter>
+    <TextSymbolizer fill="#000000" halo-fill="#ffffff" face-name="Open Sans Regular" size="13" wrap-width="60" halo-radius="1" halo-rasterizer="fast" avoid-edges="true" margin="100" repeat-distance="100" placement="point" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([area] &gt; 10000000)</Filter>
+    <TextSymbolizer fill="#000000" halo-fill="#ffffff" face-name="Open Sans Regular" size="13" wrap-width="60" halo-radius="1" halo-rasterizer="fast" avoid-edges="true" margin="100" repeat-distance="100" placement="point" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([area] &gt; 100000)</Filter>
+    <TextSymbolizer fill="#000000" halo-fill="#ffffff" face-name="Open Sans Regular" size="13" wrap-width="60" halo-radius="1" halo-rasterizer="fast" avoid-edges="true" margin="250" repeat-distance="550" placement="point" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000)</Filter>
+    <TextSymbolizer fill="#000000" halo-fill="#ffffff" face-name="Open Sans Regular" size="13" wrap-width="60" halo-radius="1" halo-rasterizer="fast" avoid-edges="true" margin="100" repeat-distance="100" placement="point" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt; 100000)</Filter>
+    <TextSymbolizer fill="#000000" halo-fill="#ffffff" face-name="Open Sans Regular" size="13" wrap-width="60" halo-radius="1" halo-rasterizer="fast" avoid-edges="true" margin="100" repeat-distance="100" placement="point" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([area] &gt; 10000)</Filter>
+    <TextSymbolizer fill="#000000" halo-fill="#ffffff" face-name="Open Sans Regular" size="13" wrap-width="60" halo-radius="1" halo-rasterizer="fast" avoid-edges="true" margin="250" repeat-distance="550" placement="point" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt; 10000)</Filter>
+    <TextSymbolizer fill="#000000" halo-fill="#ffffff" face-name="Open Sans Regular" size="13" wrap-width="60" halo-radius="1" halo-rasterizer="fast" avoid-edges="true" margin="100" repeat-distance="100" placement="point" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([area] &gt; 100)</Filter>
+    <TextSymbolizer fill="#000000" halo-fill="#ffffff" face-name="Open Sans Regular" size="13" wrap-width="60" halo-radius="1" halo-rasterizer="fast" avoid-edges="true" margin="250" repeat-distance="550" placement="point" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+</Style>
+<Layer name="data"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>data</StyleName>  </Layer>
+
+<Style name="data_1" filter-mode="first">
+  <Rule>
+    <PolygonSymbolizer fill="rgba(0, 0, 0, 0.1)" />
+  </Rule>
+</Style>
+<Layer name="data_1"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>data_1</StyleName>  </Layer>
+
+</Map>
