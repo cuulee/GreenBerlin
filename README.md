@@ -2,7 +2,7 @@
 
 # GreenBerlin
 
-This is the technical documentation for how to build a  <a href="http://www.vislab.io/green/index.html">tangible data visualization of green areas and water in Berlin</a>.
+This is the technical documentation for how to build a  <a href="http://www.vislab.io/projects/green/index.html">tangible data visualization of green areas and water in Berlin</a>.
 
 ##01 - Data Aggregation
 
@@ -47,7 +47,7 @@ If you want to put labels or outlines on top, i suggest using vector-tiles. You 
 
 ##05 - Website
 
-If you are interested in the implementation of the slippy map, the folder 05_website includes the complete website http://www.vislab.io/green/index.html.
+If you are interested in the implementation of the slippy map, the folder 05_website includes the complete website http://www.vislab.io/projects/green/index.html.
 If you want to know more about how to host you own tiles, check out this repo: http://www.github.com/sebastian-meier/node.tileserver
 
 ##06 - More Images
